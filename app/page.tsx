@@ -6,7 +6,7 @@ import { LucideArrowRight, LucideZap } from "lucide-react";
 
 export default function LandingPage() {
 
-  // Mock functions for demonstration
+  // Mock functions for demonstrationz
   const showDashboard = () => {
     console.log("Navigate to dashboard");
   };
