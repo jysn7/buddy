@@ -118,7 +118,7 @@
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
 }
-.mask-radial {
+.mask-radiial {
     mask-image: radial-gradient(circle at center, black, transparent 80%);
     -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
 }
@@ -130,3 +130,54 @@
 ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
 .sidebar-enter { transform: translateX(0); }
         .sidebar-exit { transform: translateX(-100%); }
+
+
+
+        /* Animations */
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translateY(20px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-enter { opacity: 0; animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .spin-slow { animation: spin-slow 12s linear infinite; }
+        
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+
+        /* Backgrounds */
+        /* .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        } */
+        
+        .bg-dots {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .mask-radial {
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Geometric Shapes */
+        .geo-shape { position: absolute; pointer-events: none; z-index: 0; transition: transform 0.1s linear; }
+
+        /* 3D Dashboard Transform */
+        .perspective-container { perspective: 2000px; }
+        .dashboard-tilt {
+            transform: rotateX(20deg) scale(0.9);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease-out;
+        }
+        .dashboard-tilt:hover { transform: rotateX(5deg) scale(0.95); }

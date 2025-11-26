@@ -12,6 +12,7 @@ import {
   Moon as LucideMoon,
   Menu as LucideMenu,
   X as LucideX,
+  Aperture,
 } from "lucide-react";
 
 interface SidebarProps {
@@ -30,11 +31,11 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
       <aside className="w-64 bottom-0 top-0 relative bg-zinc-900 border-r border-zinc-800/50 md:flex flex-col p-6 hidden animate-enter h-screen">
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center gap-2 mb-10 text-white">
-            <div className="w-6 h-6 bg-yellow-300 rounded flex items-center justify-center">
-              <LucideInfinity className="w-4 h-4 text-zinc-900" />
+          <div className="flex items-center gap-2 cursor-pointer group select-none">
+            <div className="w-8 h-8 bg-zinc-950/80 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Aperture className="w-6 h-6 spin-slow text-yellow-400 stroke-[1.5]" />
             </div>
-            <span className="font-medium tracking-tight text-lg">Wise</span>
+            <span className="text-base font-medium text-white tracking-tight group-hover:text-yellow-400 transition-colors">bud-e</span>
           </div>
 
           {/* User Profile */}
@@ -133,7 +134,7 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed inset-0 z-70 transform transition-transform duration-300 md:hidden bg-zinc-900 border-r border-zinc-800 w-64
+        className={`fixed inset-0 z-70 transform transition-transform duration-300 md:hidden bg-zinc-900 border-r border-zinc-800 w-64 
           ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="p-6 flex flex-col h-full">

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Zap, X } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { X, GripVertical, AudioWaveform, Aperture } from "lucide-react";
 
 interface NavbarProps {
   hide?: boolean;
@@ -10,10 +11,18 @@ interface NavbarProps {
 
 export default function Navbar({ hide }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   if (hide) return null;
 
   const toggle = () => setOpen((prev) => !prev);
+
+  const links = [
+    { label: "Methodology", href: "/methodology" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ];
 
   return (
     <>
@@ -21,19 +30,32 @@ export default function Navbar({ hide }: NavbarProps) {
       <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300 backdrop-blur-md bg-zinc-950/80 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
-          <Link href="/#landing-page" className="flex items-center gap-2 cursor-pointer group select-none">
-            <div className="w-8 h-8 bg-linear-to-br from-yellow-200 to-yellow-400 rounded-lg flex items-center justify-center text-zinc-900 shadow-lg shadow-yellow-300/20 group-hover:scale-105 transition-transform">
-              <Zap className="w-5 h-5 fill-zinc-900 stroke-[1.5]" />
+          <Link href="/" className="flex items-center gap-2 cursor-pointer group select-none">
+            <div className="w-8 h-8 bg-zinc-950/5 flex items-center justify-center  group-hover:scale-105 transition-transform">
+              <Aperture className="w-6 h-6 spin-slow text-yellow-400 stroke-[1.5]" />
             </div>
-            <span className="text-base font-medium text-white tracking-tight">Wise</span>
+            <span className="text-base font-medium text-white tracking-tight group-hover:text-yellow-400 transition-colors">bud-e</span>
           </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <Link href="/methodology" className="hover:text-white transition-colors">Methodology</Link>
-            <Link href="/pricing" className="hover:text-white transition-colors">Pricing</Link>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`relative hover:text-white transition-colors ${
+                  pathname === link.href ? "text-white" : ""
+                }`}
+              >
+                {link.label}
+                {/* Animated underline */}
+                <span
+                  className={`absolute left-0 -bottom-1 h-0.5 bg-yellow-400 transition-all duration-300 ${
+                    pathname === link.href ? "w-full" : "w-0"
+                  }`}
+                />
+              </Link>
+            ))}
           </div>
 
           {/* Auth Buttons */}
@@ -54,28 +76,26 @@ export default function Navbar({ hide }: NavbarProps) {
 
           {/* Mobile Hamburger */}
           <button onClick={toggle} className="md:hidden text-zinc-300 hover:text-white transition">
-            <Zap className="w-6 h-6" />
+            <GripVertical className="w-6 h-6" />
           </button>
         </div>
       </nav>
 
-      {/* ----------------------------------------------------------- */}
-      {/* MOBILE SIDEBAR MENU (unchanged layout - fully preserved) */}
-      {/* ----------------------------------------------------------- */}
+      {/* MOBILE SIDEBAR MENU */}
       <div
         id="public-mobile-menu"
-        className={`fixed inset-0 z-[60] transform transition-transform duration-300 md:hidden bg-zinc-950 border-r border-zinc-800 w-64 
+        className={`fixed inset-0 z-60 transform transition-transform duration-300 md:hidden bg-zinc-950 border-r border-zinc-800 w-72 
           ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="p-6 flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 bg-yellow-400 rounded-md flex items-center justify-center">
-                <Zap className="w-3 h-3 fill-zinc-900 stroke-[1.5]" />
-              </div>
-              <span className="font-medium text-white">Wise</span>
+            <Link href="/" className="flex items-center gap-2 cursor-pointer group select-none">
+            <div className="w-8 h-8 bg-zinc-950/5 flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Aperture className="w-6 h-6 spin-slow text-yellow-400 stroke-[1.5]" />
             </div>
+            <span className="text-base font-medium text-white tracking-tight group-hover:text-yellow-400 transition-colors">bud-e</span>
+          </Link>
             <button onClick={toggle} className="text-zinc-400 hover:text-white">
               <X className="w-5 h-5" />
             </button>
@@ -83,10 +103,18 @@ export default function Navbar({ hide }: NavbarProps) {
 
           {/* Menu Items */}
           <div className="flex flex-col gap-6 text-sm font-medium text-zinc-400">
-            <Link href="/methodology" onClick={toggle} className="text-left hover:text-white">Methodology</Link>
-            <Link href="/pricing" onClick={toggle} className="text-left hover:text-white">Pricing</Link>
-            <Link href="/about" onClick={toggle} className="text-left hover:text-white">About</Link>
-            <Link href="/contact" onClick={toggle} className="text-left hover:text-white">Contact</Link>
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={toggle}
+                className={`text-left hover:text-white transition-colors ${
+                  pathname === link.href ? "text-white font-semibold" : ""
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* Bottom Auth */}
@@ -106,7 +134,7 @@ export default function Navbar({ hide }: NavbarProps) {
         <div
           id="public-menu-backdrop"
           onClick={toggle}
-          className="fixed inset-0 z-[55] bg-black/50 backdrop-blur-sm md:hidden fade-in"
+          className="fixed inset-0 z-55 bg-black/50 backdrop-blur-sm md:hidden fade-in"
         />
       )}
     </>
