@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { TopBar } from "./TopBar";
 import { OverviewTab } from "../Tabs/OverviewTab";
@@ -8,13 +8,13 @@ import { Sidebar } from "../sidebar/Sidebar";
 import { ModulesTab } from "../Tabs/ModulesTabs";
 
 import { SettingsTab } from "../Tabs/SettingsTab";
-import { Profile } from "@/types/profile";
+// ...existing code...
 import { withAuthClient } from "@/lib/withAuth";
 import { ScheduleTab } from "../Tabs/ScheduleTabs";
 
 function DashboardLayout() {
   const [activeTab, setActiveTab] = useState("overview");
-  const [profile, setProfile] = useState<Profile | null>(null);
+  // ...existing code...
 
   const generateTimetable = () => {
     console.log("Generate Guide clicked");

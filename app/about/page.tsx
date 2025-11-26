@@ -8,11 +8,11 @@ export default function AboutView() {
 
         <div className="space-y-6 text-zinc-400 font-light leading-relaxed text-lg">
           <p>
-            Wise started in a university library at 3 AM. We realized that students weren't struggling with the content, they were struggling with the{" "}
+            Wise started in a university library at 3 AM. We realized that students weren&#39;t struggling with the content, they were struggling with the{" "}
             <span className="text-white font-medium">strategy</span>.
           </p>
           <p>
-            Most timetables are static. They don't account for burnout, sudden deadlines, or the fact that you might learn Physics faster than History. We needed a system that breathed.
+            Most timetables are static. They don&#39;t account for burnout, sudden deadlines, or the fact that you might learn Physics faster than History. We needed a system that breathed.
           </p>
           <p>
             We built Wise to be the brain behind the books. An adaptive system that treats your time as a finite resource, optimizing every hour for maximum retention using proven cognitive science.

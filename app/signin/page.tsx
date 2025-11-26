@@ -58,8 +58,8 @@ export default function SignInPage() {
         <Button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg" onClick={handleSignIn} disabled={loading}>
           {loading ? "Signing in..." : "Sign In"}
         </Button>
-        <div className="text-center text-sm mt-2">
-          Don't have an account? <a href="/signup" className="text-green-700 font-semibold hover:underline">Sign Up</a>
+          <div className="text-center text-sm mt-2">
+            Don&#39;t have an account? <a href="/signup" className="text-green-700 font-semibold hover:underline">Sign Up</a>
         </div>
       </div>
     </div>

@@ -4,7 +4,8 @@ import { AcceptableUse } from "@/components/legal/AcceptableUse";
 import { LegalSidebar } from "@/components/legal/LegalSidebar";
 import { PrivacyPolicy } from "@/components/legal/PrivacyPolicy";
 import { TermsOfService } from "@/components/legal/TermsOfService";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+// ...existing code...
 
 
 const policyItems = ["Terms of Service", "Privacy Policy", "Acceptable Use"];

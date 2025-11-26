@@ -10,7 +10,7 @@ export default function ContactView() {
           <div>
             <h2 className="text-4xl font-medium text-white tracking-tight mb-6">Get in touch</h2>
             <p className="text-zinc-400 mb-8 font-light">
-              Have a question about the algorithm? Need a team license? Or just want to say hi? We're here.
+                      Have a question about the algorithm? Need a team license? Or just want to say hi? We&#39;re here.
             </p>
 
             <div className="space-y-6">

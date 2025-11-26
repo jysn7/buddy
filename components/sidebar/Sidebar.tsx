@@ -126,14 +126,14 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
       {/* Mobile toggle button (you can move this anywhere) */}
       <button
         onClick={toggle}
-        className="md:hidden fixed top-4 left-4 z-[75] text-white bg-zinc-900 p-2 rounded-lg border border-zinc-700 shadow-lg"
+        className="md:hidden fixed top-4 left-4 z-75 text-white bg-zinc-900 p-2 rounded-lg border border-zinc-700 shadow-lg"
       >
         <LucideMenu className="w-5 h-5" />
       </button>
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed inset-0 z-[70] transform transition-transform duration-300 md:hidden bg-zinc-900 border-r border-zinc-800 w-64 
+        className={`fixed inset-0 z-70 transform transition-transform duration-300 md:hidden bg-zinc-900 border-r border-zinc-800 w-64
           ${open ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="p-6 flex flex-col h-full">
@@ -248,7 +248,7 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
       {open && (
         <div
           onClick={toggle}
-          className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-60 bg-black/50 backdrop-blur-sm md:hidden"
         />
       )}
     </>

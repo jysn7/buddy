@@ -35,7 +35,7 @@ export default function MethodologyView() {
                 <p className="md:hidden text-zinc-500 text-sm mb-4">We ingest your constraints and exam dates.</p>
                 <div className="p-4 bg-zinc-900/50 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400 shadow-xl">
                   <span className="text-purple-400">const</span> modules = [<br />
-                  &nbsp;&nbsp;{`{ id: `}<span className="text-yellow-300">'phys_101'</span>, exam: <span className="text-yellow-300">'2023-12-15'</span> {`}`}<br />
+                      &nbsp;&nbsp;{`{ id: `}<span className="text-yellow-300">&#39;phys_101&#39;</span>, exam: <span className="text-yellow-300">&#39;2023-12-15&#39;</span> {`}`}<br />
                   ];
                 </div>
               </div>

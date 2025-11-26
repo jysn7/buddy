@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { LucideX, LucideArrowUpRight } from "lucide-react";
+import { LucideX } from "lucide-react";
 
 import { WeeklyGoal } from "./modules/WeeklyGoal";
 import { AddModule } from "./modules/AddModule";

@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import  Navbar  from "@/components/Navbar";
+// ...existing code...
 import "./globals.css";
 import { NavbarWrapper } from "@/components/NavbarWrapper";
 import ToasterProvider from "@/components/ToasterProvider";

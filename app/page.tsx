@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Zap, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+// ...existing code...
 
 export default function LandingPage() {
   return (

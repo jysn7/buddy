@@ -43,7 +43,7 @@ export function getUser() {
 
 // Listen for auth state changes
 export function onAuthStateChange(
-  callback: (event: string, session: any) => void
+  callback: (event: string, session: unknown) => void
 ) {
   return supabase.auth.onAuthStateChange(callback);
 }
