@@ -1,9 +1,30 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signOut } from "@/lib/supabaseAuth"; // your supabaseAuth signOut function
+import { toast } from "sonner";
+
 export const SettingsTab = () => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  const handleSignOut = async () => {
+    setLoading(true);
+    const { error } = await signOut();
+    setLoading(false);
+
+    if (error) {
+      toast.error(error.message);
+    } else {
+      toast.success("Signed out successfully!");
+      router.push("/auth/signin"); // redirect to login page
+    }
+  };
+
   return (
     <div className="hidden-section animate-enter">
-      <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-[24px] p-8 mx-auto">
+      <div className="w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-3xl p-8 mx-auto">
         <h3 className="text-white font-medium text-xl mb-6">Settings</h3>
         <div className="space-y-6">
           {/* Email Notifications */}
@@ -29,7 +50,13 @@ export const SettingsTab = () => {
           </div>
 
           {/* Sign Out */}
-          <button className="text-sm text-red-400 hover:text-red-300">Sign out</button>
+          <button
+            className="text-sm text-red-400 hover:text-red-300"
+            onClick={handleSignOut}
+            disabled={loading}
+          >
+            {loading ? "Signing out..." : "Sign out"}
+          </button>
         </div>
       </div>
     </div>

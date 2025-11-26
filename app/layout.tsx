@@ -1,9 +1,11 @@
 import { ReactNode } from "react";
-import { Navbar } from "@/components/Navbar";
+import  Navbar  from "@/components/Navbar";
+import "./globals.css";
+import { NavbarWrapper } from "@/components/NavbarWrapper";
+import ToasterProvider from "@/components/ToasterProvider";
 
 interface RootLayoutProps {
   children: ReactNode;
-  hideNavbar?: boolean;
 }
 
 export const metadata = {
@@ -11,21 +13,14 @@ export const metadata = {
   description: "AI-powered study timetable for students",
 };
 
-export default function RootLayout({ children, hideNavbar }: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
+  // Navbar visibility logic must move to a client component if dynamic
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col relative overflow-hidden bg-black text-white">
-        {/* Background Gradients */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none z-0">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-yellow-300/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-zinc-800/20 rounded-full blur-[120px]" />
-        </div>
-
-        {/* Navbar */}
-        <Navbar hide={hideNavbar} />
-
-        {/* Main Content */}
+      <body className="min-h-screen flex flex-col relative overflow-x-hidden bg-black text-white">
+        <NavbarWrapper />
         <main className="relative z-10 flex-1">{children}</main>
+        <ToasterProvider />
       </body>
     </html>
   );
