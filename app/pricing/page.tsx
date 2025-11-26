@@ -38,7 +38,7 @@ export default function PricingView() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-semibold text-white tracking-tight mb-4">
-            Invest in your GPA
+            Invest in your grades
           </h2>
           <p className="text-zinc-500">Cheaper than a textbook. Smarter than a tutor.</p>
         </div>
@@ -58,7 +58,7 @@ export default function PricingView() {
             </div>
             <ul className="space-y-3 mb-8 flex-1">
               <li className="flex items-center gap-3 text-xs text-zinc-400">
-                <Check className="w-3 h-3 text-zinc-500 stroke-2" /> 2 Active modules
+                <Check className="w-3 h-3 text-zinc-500 stroke-2" /> 4 Active modules
               </li>
               <li className="flex items-center gap-3 text-xs text-zinc-400">
                 <Check className="w-3 h-3 text-zinc-500 stroke-2" /> Manual rescheduling
